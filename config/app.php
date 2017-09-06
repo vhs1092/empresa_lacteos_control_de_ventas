@@ -163,6 +163,7 @@ return [
         Illuminate\Translation\TranslationServiceProvider::class,
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
+        \Artesaos\Defender\Providers\DefenderServiceProvider::class,
 
         /*
          * Package Service Providers...

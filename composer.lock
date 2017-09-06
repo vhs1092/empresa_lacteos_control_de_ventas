@@ -4,9 +4,71 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "cebaad7270baa06fcfd0c3e8eac4cc80",
-    "content-hash": "4a64e6a3c66d8868f2d894df7b313c2e",
+    "hash": "8a16f64304a92b4e77b29ebe4fcff1ad",
+    "content-hash": "ae3aa6e3e01ca43979dbe69fbe018ca5",
     "packages": [
+        {
+            "name": "artesaos/defender",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/artesaos/defender.git",
+                "reference": "1d50d0efb862af735532af275d37e222f82e7ff9"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/artesaos/defender/zipball/1d50d0efb862af735532af275d37e222f82e7ff9",
+                "reference": "1d50d0efb862af735532af275d37e222f82e7ff9",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/contracts": "~5.4",
+                "illuminate/database": "~5.4",
+                "illuminate/http": "~5.4",
+                "illuminate/support": "~5.4",
+                "illuminate/view": "~5.4",
+                "php": ">=5.6.4"
+            },
+            "require-dev": {
+                "friendsofphp/php-cs-fixer": "~1.0",
+                "fzaninotto/faker": "~1.5",
+                "orchestra/database": "~3.4@dev",
+                "orchestra/testbench": "~3.4@dev",
+                "phpspec/phpspec": "~2.1",
+                "phpunit/phpunit": "~5.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Artesaos\\Defender\\": "src/Defender/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Andreo Vieira",
+                    "email": "andreoav@gmail.com"
+                },
+                {
+                    "name": "Vagner do Carmo",
+                    "email": "vluzrmos@gmail.com"
+                },
+                {
+                    "name": "Luiz Vinicius Reis",
+                    "email": "luiz.vinicius73@gmail.com"
+                },
+                {
+                    "name": "Mauri de Souza Nunes",
+                    "email": "mauri870@gmail.com",
+                    "homepage": "https://mauri870.github.io"
+                }
+            ],
+            "description": "Roles & Permissions for Laravel 5",
+            "time": "2017-06-25 13:54:44"
+        },
         {
             "name": "dnoegel/php-xdg-base-dir",
             "version": "0.1",
@@ -3882,7 +3944,9 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "artesaos/defender": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
