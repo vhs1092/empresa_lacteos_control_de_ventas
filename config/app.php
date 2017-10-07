@@ -164,6 +164,8 @@ return [
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
         \Artesaos\Defender\Providers\DefenderServiceProvider::class,
+        Collective\Html\HtmlServiceProvider::class,
+        Roksta\Toastr\ToastrServiceProvider::class,
 
         /*
          * Package Service Providers...
@@ -226,6 +228,11 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
+        'Defender' => \Artesaos\Defender\Facades\Defender::class,
+        'needsRole' => \Artesaos\Defender\Middlewares\NeedsRoleMiddleware::class,
+         'Form' => Collective\Html\FormFacade::class,
+         'Html' => Collective\Html\HtmlFacade::class,
+        'Toast' => Roksta\Toastr\Toast::class,
 
     ],
 

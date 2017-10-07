@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "8a16f64304a92b4e77b29ebe4fcff1ad",
-    "content-hash": "ae3aa6e3e01ca43979dbe69fbe018ca5",
+    "hash": "dcda911db3f1b8ff484195d4ef30331c",
+    "content-hash": "e8860d5c4f334e365d766f62e381626e",
     "packages": [
         {
             "name": "artesaos/defender",
@@ -17,7 +17,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/artesaos/defender/zipball/1d50d0efb862af735532af275d37e222f82e7ff9",
+                "url": "https://api.github.com/repos/artesaos/defender/zipball/a16e03d23bc11a6d6c2900c5026135e1d6b9b18d",
                 "reference": "1d50d0efb862af735532af275d37e222f82e7ff9",
                 "shasum": ""
             },
@@ -715,6 +715,71 @@
             "time": "2017-07-13 13:11:05"
         },
         {
+            "name": "laravelcollective/html",
+            "version": "v5.5.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/LaravelCollective/html.git",
+                "reference": "2f6dc39ab3655724a615fe8a652d8b7f04fc9ac6"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/LaravelCollective/html/zipball/2f6dc39ab3655724a615fe8a652d8b7f04fc9ac6",
+                "reference": "2f6dc39ab3655724a615fe8a652d8b7f04fc9ac6",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/http": "5.5.*",
+                "illuminate/routing": "5.5.*",
+                "illuminate/session": "5.5.*",
+                "illuminate/support": "5.5.*",
+                "illuminate/view": "5.5.*",
+                "php": ">=7.0.0"
+            },
+            "require-dev": {
+                "illuminate/database": "5.5.*",
+                "mockery/mockery": "~0.9.4",
+                "phpunit/phpunit": "~5.4"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Collective\\Html\\HtmlServiceProvider"
+                    ],
+                    "aliases": {
+                        "Form": "Collective\\Html\\FormFacade",
+                        "Html": "Collective\\Html\\HtmlFacade"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Collective\\Html\\": "src/"
+                },
+                "files": [
+                    "src/helpers.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Taylor Otwell",
+                    "email": "taylorotwell@gmail.com"
+                },
+                {
+                    "name": "Adam Engebretson",
+                    "email": "adam@laravelcollective.com"
+                }
+            ],
+            "description": "HTML and Form Builders for the Laravel Framework",
+            "homepage": "http://laravelcollective.com",
+            "time": "2017-08-31 14:46:03"
+        },
+        {
             "name": "league/flysystem",
             "version": "1.0.41",
             "source": {
@@ -1369,6 +1434,54 @@
                 "uuid"
             ],
             "time": "2017-08-04 13:39:04"
+        },
+        {
+            "name": "roksta/toast",
+            "version": "v1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/roksta21/Toast.git",
+                "reference": "d71cceff15eba5453bfacc689325a1d0f070a99a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/roksta21/Toast/zipball/d71cceff15eba5453bfacc689325a1d0f070a99a",
+                "reference": "d71cceff15eba5453bfacc689325a1d0f070a99a",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/session": "~5.0",
+                "php": ">=5.4.0"
+            },
+            "require-dev": {
+                "mockery/mockery": "dev-master"
+            },
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "helpers/helpers.php"
+                ],
+                "psr-4": {
+                    "Roksta\\Toastr\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "roksta",
+                    "email": "roksta21@gmail.com"
+                }
+            ],
+            "description": "Toastr notifications in laravel",
+            "keywords": [
+                "alert",
+                "laravel notifications",
+                "notifications"
+            ],
+            "time": "2017-04-26 07:55:06"
         },
         {
             "name": "swiftmailer/swiftmailer",

@@ -11,14 +11,26 @@
 |
 */
 
+
+Auth::routes();
+
 Route::get('/', function () {
-    return view('admin/dashboard');
+    return redirect()->guest('login');
 });
 
-Auth::routes();
+/*Route::get('/', function () {
+    return view('admin/dashboard');
+});*/
+
+Route::group(['middleware' => 'auth'], function() {
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Auth::routes();
+    /* - Users  */
+    
+    Route::get('user/resetPassword/{uuid}', ['as'=>'user.resetPassword', 'uses'=> 'UsersController@resetPassword']);
+    Route::resource('user', 'UsersController');
+    /* End - Users */
 
-Route::get('/home', 'HomeController@index')->name('home');
+
+});
