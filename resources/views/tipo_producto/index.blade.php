@@ -1,11 +1,13 @@
 @extends('adminlte::page')
 
-
+@section('content_header')
+    <h1>Administración de Tipos de productos</h1>
+@stop
 
 @section('content')
 
     @if(Auth::user()->isAdmin())
-        <a href="{{route('user.create')}}" class="btn btn-primary pull-right"><i class="fa fa-users fa-fw"></i> <span class="bold">Add New User</span></a>
+        <a href="{{route('tipo_producto.create')}}" class="btn btn-primary pull-right"><i class="fa fa-users fa-fw"></i> <span class="bold">Nuevo Tipo de producto</span></a>
     @endif
     <div class="row">
         <div class="col-sm-12 col-xs-12 col-md-12 col-lg-12">
@@ -18,30 +20,26 @@
                                     <thead>
                                     <tr>
                                         <th>Nombre</th>
-                                        <th>Email</th>
-                                        <th>Rol</th>
+                                        <th>Descripción</th>
                                         <th></th>
                                   
                                     </tr>
                                     </thead>
                                     <tbody>
                                     
-                                     @foreach ($users as $user)   
+                                     @foreach ($tipo_producto as $tp)   
                                     <tr>
 
                                         <td>
-                                        {{$user->name}}
+                                        {{$tp->name}}
                                         </td>    
                                         <td>
-                                        {{$user->email}}
-                                        </td>
-                                        <td>
-                                        {{$user->getUserRole($user->id)}}
+                                        {{$tp->description}}
                                         </td>
                                     <td>
                                     <div class="btn-group">
-                                      <a href="{{route('user.edit', $user->id)}}"><button type="button" class="btn btn-info btn-flat">Editar</button></a>
-                                      <a href="#"><button type="button" class="btn btn-danger btn-flat">Eliminar</button></a>
+                                      <a href="{{route('tipo_producto.edit', $tp->id)}}"><button type="button" class="btn btn-info btn-flat">Editar</button></a>
+                                     <a href="#"> <button type="button" class="btn btn-danger btn-flat">Eliminar</button></a>
                                     </div>
                                     </td>
                                    

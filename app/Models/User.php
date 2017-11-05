@@ -60,21 +60,15 @@ class User extends Authenticatable
 
         if(isset($this->roles) && count($this->roles)){
             $rol = $this->roles[0]->name;
-            if($rol=="super_admin"){
-                return "Super Admin";
-            }elseif($rol=="admin"){
-                return "Admin";
+            if($rol=="admin"){
+                return "Administrador";
             }elseif($rol=="employee"){
-                return "Employee";
+                return "Empleado";
             }
             return $this->roles[0]->name;
         }else{
             return "";
         }
-    }
-
-    public function isSuperAdmin(){
-        return $this->_is('super_admin');
     }
 
     public function isAdmin(){

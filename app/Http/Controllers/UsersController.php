@@ -18,7 +18,7 @@ class UsersController extends Controller
     {
 
         $this->middleware(
-            'needsRole:super_admin|admin|employee,true',[
+            'needsRole:admin|employee,true',[
             'except' => [
 
             ]
@@ -202,12 +202,6 @@ class UsersController extends Controller
                 ->withInput();
 
         }
-
-
-
-
-
-
 
     }
 

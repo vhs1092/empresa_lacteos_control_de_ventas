@@ -126,6 +126,21 @@ return [
             'text' => 'Usuarios',
             'url'  => 'user',
             'icon' => 'user',
+        ],  
+        [
+            'text' => 'Tipos de producto',
+            'url'  => 'tipo_producto',
+            'icon' => 'user',
+        ], 
+        [
+            'text' => 'Productos',
+            'url'  => 'user',
+            'icon' => 'user',
+        ], 
+        [
+            'text' => 'Empleados',
+            'url'  => 'user',
+            'icon' => 'user',
         ],
         /*[
             'text' => 'Change Password',

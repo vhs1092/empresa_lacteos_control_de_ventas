@@ -31,6 +31,7 @@ Route::get('/home', 'HomeController@index')->name('home');
     Route::get('user/resetPassword/{uuid}', ['as'=>'user.resetPassword', 'uses'=> 'UsersController@resetPassword']);
     Route::resource('user', 'UsersController');
     /* End - Users */
+       Route::resource('tipo_producto', 'TipoProductoController');
 
 
 });
