@@ -26,14 +26,14 @@ class UsersTableSeeder extends Seeder
         
         User::create(array(
             'name'     => 'Victor Samayoa',
-            'email'    => 'vhs1092@gmail.com',
+            'email'    => 'admin@gmail.com',
             'password' => Hash::make($devPwd),
             'status' => 1
         ));
 
         $this->command->info('User created');
 
-        $this->admin = 'super_admin';
+        $this->admin = 'admin';
 
         $superAdmin = Defender::createRole($this->admin);
         $user = User::find(1);

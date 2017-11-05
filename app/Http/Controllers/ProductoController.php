@@ -15,7 +15,7 @@ class ProductoController extends Controller
     {
 
         $this->middleware(
-            'needsRole:admin,true',[
+            'needsRole:admin,employee,true',[
             'except' => [
 
             ]
