@@ -22,7 +22,7 @@ class UsersTableSeeder extends Seeder
 
     private function genUsr(){
        
-        $devPwd = ' ';
+        $devPwd = 'admin';
         
         User::create(array(
             'name'     => 'Victor Samayoa',
