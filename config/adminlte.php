@@ -134,7 +134,7 @@ return [
         ], 
         [
             'text' => 'Productos',
-            'url'  => 'user',
+            'url'  => 'producto',
             'icon' => 'user',
         ], 
         [
