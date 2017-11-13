@@ -29,10 +29,19 @@ Route::get('/home', 'HomeController@index')->name('home');
     /* - Users  */
     
     Route::get('user/resetPassword/{uuid}', ['as'=>'user.resetPassword', 'uses'=> 'UsersController@resetPassword']);
+
+    Route::get('user/changeStatus/{user}/{status}', ['as'=>'user.changeStatus', 'uses'=> 'UsersController@changeStatus']);
+
     Route::resource('user', 'UsersController');
     /* End - Users */
+       Route::get('producto/changeStatus/{producto}/{status}', ['as'=>'producto.changeStatus', 'uses'=> 'ProductoController@changeStatus']);
+
        Route::resource('tipo_producto', 'TipoProductoController');
        Route::resource('producto', 'ProductoController');
+	/* Cliente */
+      Route::get('cliente/changeStatus/{cliente}/{status}', ['as'=>'cliente.changeStatus', 'uses'=> 'ClienteController@changeStatus']);
+
+       Route::resource('cliente', 'ClienteController');
 
 
 });

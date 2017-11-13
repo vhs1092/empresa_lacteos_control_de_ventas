@@ -5,10 +5,10 @@
 
 <div class="row">
     <div class=" col-xs-10 col-md-10 col-lg-10 col-md-offset-1">
-        {!! Form::model($producto,['method'=>'PATCH','action' => ['ProductoController@update',$producto->id],'class'=>'form-horizontal']) !!}
+        {!! Form::model($cliente,['method'=>'PATCH','action' => ['ClienteController@update',$cliente->id],'class'=>'form-horizontal']) !!}
 
         <fieldset>
-        @include('producto.form',['submitButtonText'=>'Actualizar Producto'])
+        @include('cliente.form',['submitButtonText'=>'Actualizar Tipo de producto'])
         </fieldset>
         {!! Form::close() !!}
     </div>

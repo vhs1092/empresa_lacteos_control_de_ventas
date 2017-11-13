@@ -5,7 +5,7 @@
 @section('content')
 
     @if(Auth::user()->isAdmin())
-        <a href="{{route('user.create')}}" class="btn btn-primary pull-right"><i class="fa fa-users fa-fw"></i> <span class="bold">Add New User</span></a>
+        <a href="{{route('user.create')}}" class="btn btn-primary pull-right"><i class="fa fa-users fa-fw"></i> <span class="bold">Agregar Usuario</span></a>
     @endif
     <div class="row">
         <div class="col-sm-12 col-xs-12 col-md-12 col-lg-12">
@@ -20,6 +20,7 @@
                                         <th>Nombre</th>
                                         <th>Email</th>
                                         <th>Rol</th>
+                                        <th>Estado</th>
                                         <th></th>
                                   
                                     </tr>
@@ -37,6 +38,14 @@
                                         </td>
                                         <td>
                                         {{$user->getUserRole($user->id)}}
+                                        </td>
+                                        <td>
+                                        @if($user->status == 1)
+                                        <a href="{{route('user.changeStatus',['user'=>$user->id,'status'=>0])}}"><button type="button" class="btn btn-success btn-flat">Activado</button></a>
+                                        @else
+                                        <a href="{{route('user.changeStatus',['user'=>$user->id,'status'=>1])}}"><button type="button" class="btn btn-danger btn-flat">Desactivado</button></a>
+                                        @endif
+
                                         </td>
                                     <td>
                                     <div class="btn-group">

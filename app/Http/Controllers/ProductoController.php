@@ -5,8 +5,10 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Models\Producto;
+use App\Models\TipoProducto;
 use Illuminate\Support\Facades\DB;
 use Session;
+use App\Http\Requests\ProductoRequest;
 
 class ProductoController extends Controller
 {
@@ -32,23 +34,11 @@ class ProductoController extends Controller
 
     public function create(Request $request)
     {
-
-        return view('producto.create');
+        $tipos = TipoProducto::pluck('name', 'id');
+        return view('producto.create', compact('tipos'));
     }
 
-    public function store(Request $request){
-
-        $validator = \Validator::make($request->all(), [
-            'name' => 'required',
-            'stock' => 'required'
-        ]);
-
-        if ($validator->fails()) {
-            return redirect()
-                ->route('producto.index')
-                ->withErrors($validator)
-                ->withInput();
-        }
+    public function store(ProductoRequest $request){
 
         try {
             
@@ -57,6 +47,7 @@ class ProductoController extends Controller
             'id_tipo_producto'     =>  $request->id_tipo_producto,
             'description'     =>  $request->description,
             'weight'     =>  $request->weight,
+            'unidad'     =>  $request->unidad,
             'stock'     =>  $request->stock,
             'status'     =>  1,
         ]);
@@ -84,9 +75,11 @@ class ProductoController extends Controller
     public function edit($id)
     {
         $producto       = Producto::find($id);
+        $tipos = TipoProducto::pluck('name', 'id');
 
         return view('producto.edit',[
-            'producto'=>$producto
+            'producto'=>$producto,
+            'tipos'=>$tipos
         ]);
     }
 
@@ -115,6 +108,7 @@ class ProductoController extends Controller
             $producto->description =  $request->description;
             $producto->id_tipo_producto =  $request->id_tipo_producto;
             $producto->weight =  $request->weight;
+            $producto->unidad =  $request->unidad;
             $producto->stock =  $request->stock;
 
             $producto->save();
@@ -136,7 +130,18 @@ class ProductoController extends Controller
 
     }
 
+        public function changeStatus(Request $request){
 
+            $producto = Producto::findOrFail($request->producto);
+            $producto->status = $request->status;
+            $producto->save();
+
+            toast()->success('Producto actualizado con exito!');
+
+            return redirect()
+            ->route('producto.index');
+
+    }
 
 
 }

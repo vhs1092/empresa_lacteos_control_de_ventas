@@ -138,8 +138,8 @@ return [
             'icon' => 'user',
         ], 
         [
-            'text' => 'Empleados',
-            'url'  => 'user',
+            'text' => 'Clientes',
+            'url'  => 'cliente',
             'icon' => 'user',
         ],
         /*[

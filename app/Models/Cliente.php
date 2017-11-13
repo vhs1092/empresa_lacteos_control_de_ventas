@@ -7,9 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 class Cliente extends Model
 {
 
-protected $table = 'producto';
+protected $table = 'cliente';
 
-    protected $fillable = ['name', 'description', 'id_tipo_producto', 'stock'];
+    protected $fillable = ['name', 'razon_social', 'nit', 'address', 'telephone', 'status'];
 
     protected $hidden = [
         'created_at',

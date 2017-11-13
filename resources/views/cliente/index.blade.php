@@ -1,13 +1,13 @@
 @extends('adminlte::page')
 
 @section('content_header')
-    <h1>Administración de Productos</h1>
+    <h1>Administración de Clientes</h1>
 @stop
 
 @section('content')
 
     @if(Auth::user()->isAdmin())
-        <a href="{{route('producto.create')}}" class="btn btn-primary pull-right"><i class="fa fa-users fa-fw"></i> <span class="bold">Nuevo Producto</span></a>
+        <a href="{{route('cliente.create')}}" class="btn btn-primary pull-right"><i class="fa fa-users fa-fw"></i> <span class="bold">Nuevo Cliente</span></a>
     @endif
     <div class="row">
         <div class="col-sm-12 col-xs-12 col-md-12 col-lg-12">
@@ -20,8 +20,9 @@
                                     <thead>
                                     <tr>
                                         <th>Nombre</th>
-                                        <th>Tipo</th>
-                                        <th>Stock</th>
+                                        <th>Nit</th>
+                                        <th>Razón social</th>
+                                        <th>Teléfono</th>
                                         <th>Estado</th>
                                         <th></th>
                                   
@@ -29,30 +30,30 @@
                                     </thead>
                                     <tbody>
                                     
-                                     @foreach ($producto as $tp)   
+                                     @foreach ($cliente as $cl)   
                                     <tr>
-
                                         <td>
-                                        {{$tp->name}}
+                                        {{$cl->name}}
                                         </td>    
                                         <td>
-                                        {{$tp->tipo->name}}
+                                        {{$cl->nit}}
+                                        </td>
+                                         <td>
+                                        {{$cl->razon_social}}
+                                        </td>  
+                                        <td>
+                                        {{$cl->telephone}}
                                         </td>
                                         <td>
-                                        {{$tp->stock}}
-                                        </td>
-                     
-                                        <td>
-                                        @if($tp->status == 1)
-                                        <a href="{{route('producto.changeStatus',['producto'=>$tp->id,'status'=>0])}}"><button type="button" class="btn btn-success btn-flat">Activado</button></a>
+                                          @if($cl->status == 1)
+                                        <a href="{{route('cliente.changeStatus',['cliente'=>$cl->id,'status'=>0])}}"><button type="button" class="btn btn-success btn-flat">Activado</button></a>
                                         @else
-                                        <a href="{{route('producto.changeStatus',['producto'=>$tp->id,'status'=>1])}}"><button type="button" class="btn btn-danger btn-flat">Desactivado</button></a>
+                                        <a href="{{route('cliente.changeStatus',['cliente'=>$cl->id,'status'=>1])}}"><button type="button" class="btn btn-danger btn-flat">Desactivado</button></a>
                                         @endif
-
                                         </td>
                                     <td>
                                     <div class="btn-group">
-                                      <a href="{{route('producto.edit', $tp->id)}}"><button type="button" class="btn btn-info btn-flat">Editar</button></a>
+                                      <a href="{{route('cliente.edit', $cl->id)}}"><button type="button" class="btn btn-info btn-flat">Editar</button></a>
                                      <a href="#"> <button type="button" class="btn btn-danger btn-flat">Eliminar</button></a>
                                     </div>
                                     </td>

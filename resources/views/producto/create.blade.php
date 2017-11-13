@@ -4,7 +4,7 @@
 
 {!! Form::open(['route'=> 'producto.store','class'=>'form-horizontal']) !!}
     <fieldset>
-        @include('producto.form',['submitButtonText'=>'Crear  Tipo de producto'])
+        @include('producto.form',['submitButtonText'=>'Crear  Producto'])
     </fieldset>
 {!! Form::close() !!}
 

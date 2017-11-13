@@ -10,6 +10,7 @@ use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
+use App\Http\Requests\UsuarioRequest;
 
 class UsersController extends Controller
 {
@@ -42,27 +43,14 @@ class UsersController extends Controller
         return view('users.create',compact('roles','rol_id'));
     }
 
-    public function store(Request $request){
-
-        $validator = \Validator::make($request->all(), [
-            'name' => 'required|min:5',
-            'email' => 'required|email|max:255|unique:users'
-        ]);
-
-        if ($validator->fails()) {
-            return redirect()
-                ->route('user.index')
-                ->withErrors($validator)
-                ->withInput();
-        }
+    public function store(UsuarioRequest $request){
 
         try {
-            $pwd =  str_random(16);
 
          $user = new User([
             'name'      =>  $request->name,
             'email'     =>  $request->email,
-            'password'  =>  \Hash::make($pwd),
+            'password'  =>  \Hash::make($request->password),
             'status'    =>  1,
         ]);
         $user->save();
@@ -72,13 +60,7 @@ class UsersController extends Controller
         //from select input
         $user->attachRole($role);
 
-        $userData = [
-            'name'=>  $request->name,
-            'email'=>  $request->email,
-            'pwd'=>  $pwd,
-        ];
-        //$this->sendEmail($userData);
-        
+       
         toast()->success('Usuario creado con exito!', 'Usuario creado');
         
         return redirect()
@@ -189,17 +171,20 @@ class UsersController extends Controller
 
             $user->save();
 
+            toast()->success('Usuario actualizado con exito!');
+
             return redirect()
-                ->route('agency.show', ['id' =>$request->agency_id]);
+            ->route('user.index');
 
 
 
         }catch (\Exception $e){
 
+           
+        toast()->error($e->getMessage(), 'Ha ocurrido un error');
+
             return redirect()
-                ->route('agency.show', ['id' =>$request->agency_id])
-                ->withErrors($e->getMessage())
-                ->withInput();
+                ->route('user.index');
 
         }
 
@@ -219,30 +204,16 @@ class UsersController extends Controller
 
 
 
-    //Enable or disable user
-    public function action($uuid,$val)
-    {   
-        $chk = $_POST['chk'];
-        $_chk = ($chk=='true')?1:0;
+    public function changeStatus(Request $request){
 
-        $user = User::find($uuid);
+            $user = User::findOrFail($request->user);
+            $user->status = $request->status;
+            $user->save();
 
-        if ($chk=='true') {
-            $renewPwd =  str_random(16);
-            $user->password  = \Hash::make($renewPwd);
-        }
-        $user->active = $_chk;
-        $user->save();
+            toast()->success('Usuario actualizado con exito!');
 
-        if ($chk=='true') {
-            $userData = [
-                'name'=>  $user->name,
-                'email'=>  $user->email,
-                'pwd'=>  $renewPwd,
-            ];
-            $this->sendEmail($userData);
-        }
-        return 'true';
+            return redirect()
+            ->route('user.index');
 
     }
 }
