@@ -42,6 +42,16 @@ Route::get('/home', 'HomeController@index')->name('home');
       Route::get('cliente/changeStatus/{cliente}/{status}', ['as'=>'cliente.changeStatus', 'uses'=> 'ClienteController@changeStatus']);
 
        Route::resource('cliente', 'ClienteController');
+    /* Tipo Transacciones */
+           Route::get('tipo_transaccion/changeStatus/{tipo_transaccion}/{status}', ['as'=>'tipo_transaccion.changeStatus', 'uses'=> 'TipoTransaccionController@changeStatus']);
+
+           Route::resource('tipo_transaccion','TipoTransaccionController');
+    /* Transacciones */
+           
+           Route::get('transaccion/transaccion_get_clientes','TransaccionController@get_clientes');
+           Route::get('transaccion/transaccion_get_productos','TransaccionController@get_productos');
+           Route::post('transaccion/transaccion_get_tipo','TransaccionController@get_tipotransaccion');
+           Route::resource('transaccion','TransaccionController');
 
 
 });

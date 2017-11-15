@@ -25,7 +25,7 @@ class UsersTableSeeder extends Seeder
         $devPwd = 'admin';
         
         User::create(array(
-            'name'     => 'Victor Samayoa',
+            'name'     => 'Administrador',
             'email'    => 'admin@gmail.com',
             'password' => Hash::make($devPwd),
             'status' => 1
