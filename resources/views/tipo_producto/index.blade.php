@@ -39,7 +39,7 @@
                                     <td>
                                     <div class="btn-group">
                                       <a href="{{route('tipo_producto.edit', $tp->id)}}"><button type="button" class="btn btn-info btn-flat">Editar</button></a>
-                                     <a href="#"> <button type="button" class="btn btn-danger btn-flat">Eliminar</button></a>
+                                
                                     </div>
                                     </td>
                                    

@@ -32,7 +32,7 @@ return [
 
     'logo' => '<b>Control</b>Inventario',
 
-    'logo_mini' => '<b>CTR</b>IN',
+    'logo_mini' => '<b>PLRH</b>',
 
     /*
     |--------------------------------------------------------------------------
@@ -130,27 +130,27 @@ return [
         [
             'text' => 'Tipos de producto',
             'url'  => 'tipo_producto',
-            'icon' => 'user',
+            'icon' => 'pencil-square-o',
         ], 
         [
             'text' => 'Productos',
             'url'  => 'producto',
-            'icon' => 'user',
+            'icon' => 'archive',
         ], 
         [
             'text' => 'Clientes',
             'url'  => 'cliente',
-            'icon' => 'user',
+            'icon' => 'users',
         ],
          [
             'text' => 'Tipos de Transaccion',
             'url'  => 'tipo_transaccion',
-            'icon' => 'user',
+            'icon' => 'cart-arrow-down',
         ],
         [
             'text' => 'Transaciones',
             'url'  => 'transaccion',
-            'icon' => 'user',
+            'icon' => 'plane',
         ]
         /*[
             'text' => 'Change Password',
