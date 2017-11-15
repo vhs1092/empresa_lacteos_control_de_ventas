@@ -7,7 +7,7 @@
 @section('content')
 
     @if(Auth::user()->isAdmin())
-        <a href="{{route('tipo_transaccion.create')}}" class="btn btn-primary pull-right"><i class="fa fa-users fa-fw"></i> <span class="bold">Nuevo Tipo de Transaccion</span></a>
+        <a href="{{route('tipo_transaccion.create')}}" class="btn btn-primary pull-right"><i class="fa fa-file-o"></i> <span class="bold">Nuevo Tipo de Transaccion</span></a>
     @endif
     <div class="row">
         <div class="col-sm-12 col-xs-12 col-md-12 col-lg-12">
@@ -63,7 +63,7 @@
                                     <td>
                                     <div class="btn-group">
                                       <a href="{{route('tipo_transaccion.edit', $tp->id)}}"><button type="button" class="btn btn-info btn-flat">Editar</button></a>
-                                     <a href="#"> <button type="button" class="btn btn-danger btn-flat">Eliminar</button></a>
+                                 
                                     </div>
                                     </td>
                                    

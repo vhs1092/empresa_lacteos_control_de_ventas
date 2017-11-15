@@ -7,6 +7,8 @@ use App\Http\Requests;
 use App\Models\TipoTransaccion;
 use Illuminate\Support\Facades\DB;
 use Session;
+use App\Http\Requests\TipoTransaccionRequest;
+
 
 class TipoTransaccionController extends Controller
 {
@@ -30,44 +32,42 @@ class TipoTransaccionController extends Controller
         return view('tipo_transaccion.index',compact('tipo_transaccion'));
     }
 
-/*
+
     public function create(Request $request)
     {
+        $tipo = [
+        1 => 'Suma',
+        2 => 'Resta'
+        ];
 
-        return view('tipo_transaccion.create');
+        $maneja_cliente = [
+        1 => 'Si',
+        2 => 'No'
+        ];
+
+        return view('tipo_transaccion.create', compact('tipo', 'maneja_cliente'));
     }
 
-    public function store(Request $request){
-
-        $validator = \Validator::make($request->all(), [
-            'name' => 'required',
-            'stock' => 'required'
-        ]);
-
-        if ($validator->fails()) {
-            return redirect()
-                ->route('producto.index')
-                ->withErrors($validator)
-                ->withInput();
-        }
+    public function store(TipoTransaccionRequest $request){
 
         try {
             
-         $producto = new Producto([
+         $tipo_transaccion = new TipoTransaccion([
             'name'      =>  $request->name,
-            'id_tipo_producto'     =>  $request->id_tipo_producto,
             'description'     =>  $request->description,
-            'weight'     =>  $request->weight,
-            'stock'     =>  $request->stock,
+            'tipo'     =>  $request->tipo,
+            'maneja_cliente'     =>  $request->maneja_cliente,
+            'correlativo'     =>  $request->correlativo,
             'status'     =>  1,
         ]);
-        $producto->save();
+
+        $tipo_transaccion->save();
 
     
-        toast()->success('Producto creado con exito!');
+        toast()->success('Tipo de transacción creada con exito!');
         
         return redirect()
-            ->route('producto.index');
+            ->route('tipo_transaccion.index');
 
 
         }catch (\Exception $e){
@@ -75,7 +75,7 @@ class TipoTransaccionController extends Controller
         toast()->error($e->getMessage(), 'Ha ocurrido un error');
 
             return redirect()
-                ->route('producto.index');
+                ->route('tipo_transaccion.index');
 
         }
         
@@ -84,46 +84,44 @@ class TipoTransaccionController extends Controller
   
     public function edit($id)
     {
-        $producto       = Producto::find($id);
+        $tipo_transaccion       = TipoTransaccion::find($id);
+        
+        $tipo = [
+        1 => 'Suma',
+        2 => 'Resta'
+        ];
 
-        return view('producto.edit',[
-            'producto'=>$producto
+        $maneja_cliente = [
+        1 => 'Si',
+        2 => 'No'
+        ];
+
+        return view('tipo_transaccion.edit',[
+            'tipo_transaccion'=>$tipo_transaccion,
+            'tipo'=>$tipo,
+            'maneja_cliente'=>$maneja_cliente
         ]);
     }
 
 
 
-    public function update($id,Request $request)
-    {
-
-
-        $validator = \Validator::make($request->all(), [
-            'name' => 'required'
-        ]);
-
-        if ($validator->fails()) {
-
-            return redirect()
-                ->route('producto.index')
-                ->withErrors($validator)
-                ->withInput();
-        }
-
+    public function update($id, TipoTransaccionRequest $request)
+    { 
         try{
 
-            $producto = Producto::findOrFail($id);
-            $producto->name = $request->name;
-            $producto->description =  $request->description;
-            $producto->id_tipo_producto =  $request->id_tipo_producto;
-            $producto->weight =  $request->weight;
-            $producto->stock =  $request->stock;
+            $tipo_transaccion = TipoTransaccion::findOrFail($id);
+            $tipo_transaccion->name = $request->name;
+            $tipo_transaccion->description =  $request->description;
+            $tipo_transaccion->tipo =  $request->tipo;
+            $tipo_transaccion->maneja_cliente =  $request->maneja_cliente;
+            $tipo_transaccion->correlativo =  $request->correlativo;
 
-            $producto->save();
+            $tipo_transaccion->save();
 
-        toast()->success('Producto actualizado con exito!');
+        toast()->success('Tipo de transacción actualizada con exito!');
         
         return redirect()
-            ->route('producto.index');
+            ->route('tipo_transaccion.index');
 
 
         }catch (\Exception $e){
@@ -131,13 +129,25 @@ class TipoTransaccionController extends Controller
         toast()->error('Ha occurrido un error!');
            
             return redirect()
-            ->route('producto.index');
+            ->route('tipo_transaccion.index');
 
         }
 
-    }*/
+    }
 
 
+    public function changeStatus(Request $request){
+
+            $tipo_transaccion = TipoTransaccion::findOrFail($request->tipo_transaccion);
+            $tipo_transaccion->status = $request->status;
+            $tipo_transaccion->save();
+
+            toast()->success('Estado actualizado con exito!');
+
+            return redirect()
+            ->route('tipo_transaccion.index');
+
+    }
 
 
 }
