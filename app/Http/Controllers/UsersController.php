@@ -132,7 +132,7 @@ class UsersController extends Controller
 
 
         $validator = \Validator::make($request->all(), [
-            'name' => 'required|min:5',
+            'name' => 'required',
             'email' => 'required|email|max:255|unique:users,id',
             'rol_id'=>'required|integer|min:1'
         ]);

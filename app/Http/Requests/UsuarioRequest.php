@@ -25,7 +25,7 @@ class UsuarioRequest extends Request
     public function rules()
     {
         $rules = [
-            'name' => 'required|min:5',
+            'name' => 'required',
             'email' => 'required|email|max:255|unique:users',
             'password' => 'required|min:3|confirmed',
             'password_confirmation' => 'required|min:3'        
