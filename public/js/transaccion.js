@@ -20,6 +20,7 @@ $(document).ready(function ()
             	if(data.maneja_cliente==1)
             	{
             		$("#clientes-control").show();
+                $("#clientes").prop("required",true);
             		$("#clientes").autocomplete({
             		   //source: data
                      source:'transaccion_get_clientes'
@@ -29,6 +30,7 @@ $(document).ready(function ()
             	}else{
             		$("#clientes-control").hide();
             		$("#clientes").val("");
+                $("#clientes").prop("required",false);
             	}
                
             }
@@ -46,7 +48,7 @@ $(document).ready(function ()
                             <div class="form-group">\
                                <label class="col-sm-2 control-label" for="producto_'+ contador +'">Producto</label>\
                                 <div class="col-sm-10">\
-                                    <input class="form-control" id="producto_' + contador + '" type="text" placeholder="Producto">\
+                                    <input class="form-control" name="producto_' + contador + '" id="producto_' + contador + '" type="text" placeholder="Producto" required="true">\
                                 </div>\
                              </div>\
                       </div> \
@@ -54,7 +56,7 @@ $(document).ready(function ()
                         <div class="form-group">\
                             <label class="col-sm-2 control-label" for="cantidad_'+ contador +'">Cantidad</label>\
                                 <div class="col-sm-4">\
-                                    <input class="form-control" id="cantidad_'+ contador +'" type="text" placeholder="Cantidad">\
+                                    <input class="form-control cantidad" name="cantidad_'+ contador +'" id="cantidad_'+ contador +'" type="text" placeholder="Cantidad" required="true">\
                                 </div>\
                         </div>\
                       </div>\
@@ -65,6 +67,7 @@ $(document).ready(function ()
        	 source:'transaccion_get_productos'
            });
 
+       $("#nlineas").val(contador);
    });
 
 
@@ -76,6 +79,8 @@ $(document).ready(function ()
     	 $(".can_"+contador).remove();
        contador--;
      }
+      $("#nlineas").val(contador);
+     sumarTotal();
    });
 
 $( "#producto_1" ).autocomplete({
@@ -84,5 +89,24 @@ $( "#producto_1" ).autocomplete({
     });
 
 
+   function sumarTotal(){     
+     var total=0;
+      $(".cantidad").each(function(){
+         var cantidad=0;
+         if(isNaN($(this).val())){
+            cantidad=0;
+          }else{
+          cantidad=parseInt($(this).val());
+        }
+        total=total + cantidad;
+      })
+       
+      $("#inputTotal").val(total);
+   };
+
+  $(document.body).on("change",".cantidad", function() {
+  // Check input( $( this ).val() ) for validity here
+    sumarTotal();
+   });
 
 });
