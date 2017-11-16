@@ -50,7 +50,10 @@ Route::get('/home', 'HomeController@index')->name('home');
            
            Route::get('transaccion/transaccion_get_clientes','TransaccionController@get_clientes');
            Route::get('transaccion/transaccion_get_productos','TransaccionController@get_productos');
+           Route::get('transaccion/transaccion_detail', ['as'=>'transaccion.detail', 'uses'=> 'TransaccionController@detail']);
+           Route::post('transaccion/transaccion_save','TransaccionController@save');
            Route::post('transaccion/transaccion_get_tipo','TransaccionController@get_tipotransaccion');
+
            Route::resource('transaccion','TransaccionController');
 
 

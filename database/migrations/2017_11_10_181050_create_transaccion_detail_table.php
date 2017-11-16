@@ -21,6 +21,7 @@ class CreateTransaccionDetailTable extends Migration
             $table->integer('id_producto')->unsigned();
             $table->foreign('id_producto')->references('id')->on('producto');
             $table->integer('cantidad');
+            $table->integer('numero_linea');
             $table->integer('status');
             $table->timestamps();
         });

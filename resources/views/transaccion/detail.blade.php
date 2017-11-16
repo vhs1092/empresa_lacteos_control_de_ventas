@@ -7,7 +7,7 @@
 @section('content')
 
    
-        <a href="{{route('transaccion.create')}}" class="btn btn-primary pull-right"><i class="fa fa-users fa-fw"></i> <span class="bold">Nueva Transacción</span></a>
+<a href="{{route('transaccion.index')}}" class="btn btn-primary pull-right"><i class="fa fa-arrow-circle-left fa-fw"></i> <span class="bold">Regresar</span></a>
   <div class="row">
         <div class="col-sm-12 col-xs-12 col-md-12 col-lg-12">
             <div class="hpanel">
@@ -16,42 +16,35 @@
                         <div class="panel-body">
                             <div class="table-responsive">
                                 <table id="datatableData" class="table table-striped">
-                                    <thead>
+                                   <thead>
                                     <tr>
-                                    	<th>Tipo</th>
+                                        <th>Tipo</th>
                                         <th>Numero</th>
-                                        <th>Observaciones</th>
-                              			<th>Cliente</th>
-                                        <th>Fecha</th>
-                                        <th></th>
+                                        <th>Nlinea</th>
+                                        <th>Producto</th>
+                                        <th>Cantidad</th>
                                     </tr>
                                     </thead>
                                     <tbody>
-                                     @foreach ($transaccion_header as $tp)   
+                                    
+                                     @foreach($transaccion_detail as $tp)   
                                     <tr>
-
+                                      
                                         <td>
                                         {{$tp->tipo}}
                                         </td>    
                                         <td>
                                         {{$tp->numero}}
                                         </td>
-                                         <td>
-                                        {{$tp->observaciones}}
+                                        <td>
+                                        {{$tp->numero_linea}}
                                         </td>
                                         <td>
-                                        {{$tp->cliente}}
+                                        {{$tp->producto}}
                                         </td>
                                         <td>
-                                        {{$tp->fecha}}
+                                        {{$tp->cantidad}}
                                         </td>
-                                        <td>
-                                         <div class="btn-group">
-                                          <a href="{{route('transaccion.detail', ['id_tipo_transaccion'=>$tp->id_tipo_transaccion,'numero'=>$tp->numero])}}"><button type="button" class="btn btn-info btn-flat">Detalles</button></a>
-                                 
-                                          </div>
-                                         </td>
-                          
                                      </tr>
                                     @endforeach
                                     </tbody>
@@ -67,5 +60,4 @@
 @endsection
 @section('js')
 <script type="text/javascript" src="{{ url(mix('js/main.js').'?v='.date('Ymd'))}}"></script>
-
 @stop
