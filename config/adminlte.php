@@ -142,6 +142,7 @@ return [
             'url'  => 'cliente',
             'icon' => 'users',
         ],
+         'Transacciones',
          [
             'text' => 'Tipos de Transaccion',
             'url'  => 'tipo_transaccion',
@@ -151,7 +152,13 @@ return [
             'text' => 'Transaciones',
             'url'  => 'transaccion',
             'icon' => 'plane',
-        ]
+        ],
+         'Reportes',
+        [
+            'text' => 'Reportes',
+            'url'  => 'reportes',
+            'icon' => 'line-chart',
+        ],
         /*[
             'text' => 'Change Password',
             'url'  => 'admin/settings',
