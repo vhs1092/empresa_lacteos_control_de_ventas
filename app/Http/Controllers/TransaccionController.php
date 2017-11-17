@@ -67,7 +67,8 @@ class TransaccionController extends Controller
         //return view('transaccion.index',compact('producto'));
         $tipo_transaccion = TipoTransaccion::find($request->input('tipo_transaccion'));
         $numero=$tipo_transaccion->correlativo;
-        $trans = TransaccionHeader::where('numero', $numero)->first(); // model or null
+        $trans = TransaccionHeader::where([['id_tipo_transaccion','=',$tipo_transaccion->id],['numero','=',$numero]])
+        ->first(); // model or null
         if ($trans) {
              // Do stuff if exist.
             toast()->error('Ha occurrido un error!, Ya existe una transaccion con este numero');
