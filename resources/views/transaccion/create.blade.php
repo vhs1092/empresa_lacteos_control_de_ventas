@@ -115,5 +115,5 @@
 <script type="text/javascript" src="{{ url(mix('js/main.js').'?v='.date('Ymd'))}}"></script>
 <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.0/themes/smoothness/jquery-ui.css" />
 <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"></script>
-<script type="text/javascript" src="/js/transaccion.js"></script>
+<script type="text/javascript" src="../js/transaccion.js"></script>
 @stop
