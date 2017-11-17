@@ -23,7 +23,7 @@
                                         <th>Observaciones</th>
                               			<th>Cliente</th>
                                         <th>Fecha</th>
-                                        <th></th>
+                                        <th class="noExport"></th>
                                     </tr>
                                     </thead>
                                     <tbody>
@@ -31,7 +31,7 @@
                                     <tr>
 
                                         <td>
-                                        {{$tp->tipo}}
+                                        {{$tp->tipo->name}}
                                         </td>    
                                         <td>
                                         {{$tp->numero}}
@@ -39,9 +39,13 @@
                                          <td>
                                         {{$tp->observaciones}}
                                         </td>
+                                        @if($tp->id_cliente != null)
                                         <td>
-                                        {{$tp->cliente}}
+                                        {{$tp->cliente->name}}
                                         </td>
+                                        @else
+                                        <td></td>
+                                        @endif
                                         <td>
                                         {{$tp->fecha}}
                                         </td>

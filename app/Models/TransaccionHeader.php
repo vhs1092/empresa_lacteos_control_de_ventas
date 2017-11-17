@@ -16,4 +16,17 @@ class TransaccionHeader extends Model
         'updated_at'
     ];
 
+    /**
+     * Get the post that owns the comment.
+     */
+    public function cliente()
+    {
+        return $this->belongsTo('App\Models\Cliente', 'id_cliente');
+    }
+
+    public function tipo()
+    {
+        return $this->belongsTo('App\Models\TipoTransaccion', 'id_tipo_transaccion');
+    }
+
 }

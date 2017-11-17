@@ -18,6 +18,8 @@ mix
             'resources/assets/js/jquery-ui.min.js',
             'resources/assets/js/select2.min.js',
             'resources/assets/js/transaccion.js',
+            /* datatables */
+
 
         ], 'public/js/appClient.js', './')
 
@@ -25,6 +27,7 @@ mix
 
             'resources/assets/css/select2.min.css',
             'resources/assets/css/jquery-ui.css',
+            'resources/assets/css/datatables/buttons.dataTables.min.css',
         ], 'public/styles/appClient.css', './')
 
    .sass('resources/assets/sass/app.scss', 'public/css');

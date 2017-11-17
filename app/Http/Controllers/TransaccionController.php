@@ -31,11 +31,7 @@ class TransaccionController extends Controller
 
     public function index(){
         //$producto = Producto::all();
-         $transaccion_header=TransaccionHeader::join('tipo_transaccion','transaccion_header.id_tipo_transaccion','=','tipo_transaccion.id')
-         //->join('cliente','transaccion_header.id_cliente','=','cliente.id')
-         ->select('transaccion_header.id_tipo_transaccion','tipo_transaccion.name AS tipo','transaccion_header.numero','transaccion_header.observaciones','transaccion_header.fecha','transaccion_header.id_cliente AS cliente','transaccion_header.status')
-         ->getQuery()
-         ->get();
+         $transaccion_header=TransaccionHeader::All();
         //return view('transaccion.index',compact('producto'));
         return view('transaccion.index',compact('transaccion_header'));
     }
