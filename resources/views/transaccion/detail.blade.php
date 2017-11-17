@@ -57,4 +57,48 @@
             </div>
         </div>
     </div>
+    <?php
+use Ghunti\HighchartsPHP\Highchart;
+use Ghunti\HighchartsPHP\HighchartJsExpr;
+$chart = new Highchart();
+$chart->chart->renderTo = "container";
+$chart->chart->type = "bar";
+$chart->title->text = "Transacciones";
+
+$xData = array();
+
+foreach ($transaccion_detail as $tr){   
+   array_push($xData, $tr->tipo);
+}
+
+$chart->xAxis->categories = $xData;
+$chart->yAxis->min = 0;
+$chart->yAxis->title->text = "Detalle transacción";
+$chart->tooltip->formatter = new HighchartJsExpr("function() {
+    return '' + this.series.name +': '+ this.y +'';}");
+$chart->legend->backgroundColor = "#FFFFFF";
+$chart->legend->reversed = 1;
+$chart->plotOptions->series->stacking = "normal";
+
+
+$barData = array();
+
+foreach ($transaccion_detail as $tran){ 
+   $chart->series[] = array(  'name' => $tran->producto,
+    'data' => array($tran->cantidad
+    ));
+}
+?>
+
+<html>
+    <head>
+    <title>Stacked bar</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <?php $chart->printScripts(); ?>
+    </head>
+    <body>
+        <div id="container"></div>
+        <script type="text/javascript"><?php echo $chart->render("chart1"); ?></script>
+    </body>
+</html>
 @endsection
