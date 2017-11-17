@@ -18,13 +18,13 @@ $(document).ready(function ()
             data: 'id='+valor,
             success: function( data ) {
             	if(data.maneja_cliente==1)
-            	{
+            	{ 
             		$("#clientes-control").show();
                 $("#clientes").prop("required",true);
             		$("#clientes").autocomplete({
             		   //source: data
-                     source:'transaccion_get_clientes'
-                       
+                    source:'transaccion_get_clientes'
+    
                  });
 
             	}else{

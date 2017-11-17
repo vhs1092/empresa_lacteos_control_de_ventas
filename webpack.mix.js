@@ -11,6 +11,20 @@ let mix = require('laravel-mix');
  |
  */
 
-mix.js('resources/assets/js/main.js', 'public/js');
-mix.js('resources/assets/js/app.js', 'public/js')
+mix
+
+	.scripts([
+            'resources/assets/js/main.js',
+            'resources/assets/js/jquery-ui.min.js',
+            'resources/assets/js/select2.min.js',
+            'resources/assets/js/transaccion.js',
+
+        ], 'public/js/appClient.js', './')
+
+	 .styles([
+
+            'resources/assets/css/select2.min.css',
+            'resources/assets/css/jquery-ui.css',
+        ], 'public/styles/appClient.css', './')
+
    .sass('resources/assets/sass/app.scss', 'public/css');

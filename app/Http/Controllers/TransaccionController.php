@@ -163,10 +163,15 @@ class TransaccionController extends Controller
           
           $id=$request->input('term');     
           $clientes = Cliente::Where('name', 'like', '%' . $id . '%')->limit(25)->get();
+          if(sizeof($clientes) > 0){
           foreach ($clientes as $cliente) {
               $results[] = ['label'=>$cliente->name,'value'=>$cliente->id." | ".$cliente->name];
           }
+        }else{
+          $results = [];
+        }  
           return Response::json($results);
+        
     }
 
     public function get_productos(Request $request){

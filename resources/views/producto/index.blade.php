@@ -70,6 +70,3 @@
         </div>
     </div>
 @endsection
-@section('js')
-<script type="text/javascript" src="{{ url(mix('js/main.js').'?v='.date('Ymd'))}}"></script>
-@stop
