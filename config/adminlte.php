@@ -156,7 +156,7 @@ return [
          'Reportes',
         [
             'text' => 'Reportes',
-            'url'  => 'reportes',
+            'url'  => 'reports',
             'icon' => 'line-chart',
         ],
         /*[

@@ -56,5 +56,9 @@ Route::get('/home', 'HomeController@index')->name('home');
 
            Route::resource('transaccion','TransaccionController');
 
+           Route::get('reports', 'HighChartController@index');
 
+           Route::get('GeneralReports/{option?}', 'HighChartController@GeneralReports');    
+
+           Route::get('UserReports/{option?}/{user?}', 'HighChartController@UserReports');
 });

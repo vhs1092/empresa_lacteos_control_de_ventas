@@ -166,7 +166,7 @@ return [
         \Artesaos\Defender\Providers\DefenderServiceProvider::class,
         Collective\Html\HtmlServiceProvider::class,
         Roksta\Toastr\ToastrServiceProvider::class,
-
+        ConsoleTVs\Charts\ChartsServiceProvider::class,
         /*
          * Package Service Providers...
          */
@@ -233,6 +233,7 @@ return [
          'Form' => Collective\Html\FormFacade::class,
          'Html' => Collective\Html\HtmlFacade::class,
         'Toast' => Roksta\Toastr\Toast::class,
+        'HighCharts'=> ConsoleTVs\Charts\Facades\Charts::class,
 
     ],
 
