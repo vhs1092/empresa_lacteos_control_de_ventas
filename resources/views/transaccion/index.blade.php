@@ -25,7 +25,17 @@
                                         <th>Fecha</th>
                                         <th class="noExport"></th>
                                     </tr>
+
                                     </thead>
+                                    <tfoot>
+                                        <tr>
+                                        <th>Tipo</th>
+                                        <th>Numero</th>
+                                        <th>Observaciones</th>
+                                        <th>Cliente</th>
+                                        <th>Fecha</th>
+                                        </tr>
+                                    </tfoot>
                                     <tbody>
                                      @foreach ($transaccion_header as $tp)   
                                     <tr>

@@ -27,6 +27,7 @@ mix
 
             'resources/assets/css/select2.min.css',
             'resources/assets/css/jquery-ui.css',
+            'resources/assets/css/custom.css',
             'resources/assets/css/datatables/buttons.dataTables.min.css',
         ], 'public/styles/appClient.css', './')
 
