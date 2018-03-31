@@ -98,6 +98,11 @@ class TransaccionController extends Controller
 
                 $producto=explode("|", $request->input('producto_'.$x));
                 $cantidad=$request->input('cantidad_'.$x);
+               
+                if($cantidad < 0){
+                  toast()->error('MySql error invalid cantidad value!');
+                   return redirect()->route('transaccion.index');
+                }
 
                 $transaccion_detail=new TransaccionDetail
                 ([

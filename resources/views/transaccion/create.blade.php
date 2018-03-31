@@ -68,7 +68,7 @@
                         <div class="form-group">
                             <label class="col-sm-2 control-label" for="cantidad_1">Cantidad</label>
                                 <div class="col-sm-4">
-                                    <input class="form-control cantidad" name="cantidad_1" id="cantidad_1" type="text" placeholder="Cantidad" required="true">
+                                    <input class="form-control cantidad" name="cantidad_1" id="cantidad_1" type="number" min="0" placeholder="Cantidad" required="true">
                                 </div>
                         </div>
                       </div> 
